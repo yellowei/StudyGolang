@@ -34,6 +34,15 @@ func (t *Type2) Clone() Cloneable {
 	return &tc
 }
 
+func TestCloneFromManager(t *testing.T) {
+	c := manager.Get("t1").Clone()
+	t1 := c.(*Type1)
+	if t1.name != "type1" {
+		t.Fatal("error")
+	}
+
+}
+
 func TestClone(t *testing.T) {
 	t1 := manager.Get("t1")
 	fmt.Printf("t1 p %p\n",&t1)
@@ -49,15 +58,6 @@ func TestClone(t *testing.T) {
 		fmt.Printf("t1 %v\n",t1)
 		fmt.Printf("t2 %v\n",t2)
 	}
-}
-
-func TestCloneFromManager(t *testing.T) {
-	c := manager.Get("t1").Clone()
-	t1 := c.(*Type1)
-	if t1.name != "type1" {
-		t.Fatal("error")
-	}
-
 }
 
 func init() {
