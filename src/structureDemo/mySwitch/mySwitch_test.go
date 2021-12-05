@@ -2,6 +2,7 @@ package mySwitch
 
 import (
 	"fmt"
+	"go/types"
 	"testing"
 )
 
@@ -25,4 +26,31 @@ func TestMySwitchOne(t *testing.T) {
 		fmt.Println("成绩不及格")
 
 	}
+}
+
+// type-switch 的使用
+
+func TestSwitchTwo(t *testing.T) {
+
+	//var y int
+	var y1 types.Nil
+	y := y1
+	var x interface{}
+	x = y
+
+	switch i := x.(type) {
+	case nil:
+		fmt.Printf("这是%T类型\n",i)
+	case int:
+		fmt.Println("这是int类型")
+	case float64:
+		fmt.Println("这是float64类型")
+	case func(int) float64:
+		fmt.Println("这是func(int) float64类型")
+	case bool, string:
+		fmt.Println("这是bool或者string类型")
+	default:
+		fmt.Printf("未知类型: %T\n", i)
+	}
+
 }
