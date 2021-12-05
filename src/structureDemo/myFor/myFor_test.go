@@ -1,3 +1,5 @@
+// 打印金字塔
+
 package myFor
 
 import (
