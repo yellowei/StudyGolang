@@ -55,4 +55,3 @@ func (c Computer) Work(usb Usb)  {
 	usb.Start()
 	usb.Stop()
 }
-
