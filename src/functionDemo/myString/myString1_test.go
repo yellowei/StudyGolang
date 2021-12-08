@@ -189,7 +189,7 @@ func TestMyString19(t *testing.T) {
 }
 
 // 判断字符串是否以指定子串开头
-func TestMyString20 (t * testing.T) {
+func TestMyString20(t *testing.T) {
 	str := "http://127.0.0.1"
 	isBegin := strings.HasPrefix(str, "http")
 	if isBegin {
@@ -198,7 +198,7 @@ func TestMyString20 (t * testing.T) {
 }
 
 // 判断字符串是否以指定子串结尾
-func TestMyString21 (t * testing.T) {
+func TestMyString21(t *testing.T) {
 	str := "abcd.jpg"
 	isEnd := strings.HasSuffix(str, ".jpg")
 	if isEnd {
