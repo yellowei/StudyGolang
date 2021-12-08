@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// 答应九九乘法表
+// 打印九九乘法表
 func TestForSix(t *testing.T) {
 
 	for i := 1; i <= 9; i ++ {
