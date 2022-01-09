@@ -30,6 +30,7 @@ func main () {
 		} else {
 
 			fmt.Printf("testStudent.name: %v\n", GetUnExportFiled(at.TestStudent, "name"))
+			fmt.Printf("%v", ret.Kind())
 
 			// 通过反射转换成为结构体类型
 			v := ret.Interface().(at.Student)
@@ -78,7 +79,9 @@ func GetUnExportFiled(source interface{}, fieldName string) (ret reflect.Value) 
 func SetUnExportedField(source interface{}, fieldName string, newFieldVal interface{}) (reflect.Value, error) {
 	v := reflect.ValueOf(source)
 
+	// 外部不取地址，其实内部通过反射构造了一个同类型的指针
 	vptr := reflect.New(v.Type()).Elem()
+	// 将指针指向为外部的值
 	vptr.Set(v)
 
 	tv := vptr.FieldByName(fieldName)
