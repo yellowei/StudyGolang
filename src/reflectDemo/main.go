@@ -7,6 +7,8 @@ import (
 	"unsafe"
 )
 
+
+
 func main () {
 	// 错误示范
 	//fmt.Printf("testStudent.name: %v\n", at.TestStudent.name)
@@ -40,7 +42,15 @@ func main () {
 	}
 
 
-
+	var aValue = GetPtrUnExportFiled(&at.TestStudent, "a")
+	// NewAt 反射创建一个指向window的指针类型，实现访问
+	var aInterface = reflect.NewAt(aValue.Type(), unsafe.Pointer(aValue.UnsafeAddr())).Interface()
+	var aPointer = aInterface.(*at.A)
+	//reflect.ValueOf(*window).SetPointer(unsafe.Pointer(windowValue.UnsafeAddr()))
+	//var window = walk.Window(windowValue.UnsafeAddr())
+	var a = *aPointer
+	fmt.Printf("a=%v; a.type=%t\n", a, a)
+	fmt.Println(a.GetA())
 }
 
 
